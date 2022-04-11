@@ -1,17 +1,15 @@
 const Url = require("../models/urls");
 
-function findFullUrl(req, res) {
-  const shortUrl = req.body.shortUrl;
-  // console.log("esto es lo que buscamos", shortUrl);
-  const result = Url.findOne({
-    shortUrl: shortUrl,
-  });
-
-  console.log("este es el result", result);
-  if (result) {
-    return res.json({ fullUrl: result.fullUrl });
-  } else {
-    return res.json({ error: "Sorry, this link may have expired" });
+async function findFullUrl(req, res) {
+  const { shortUrl } = await req.params;
+  console.log("esto es lo que buscamos", shortUrl);
+  // const result = await Url.find({}).where({ shortUrl: shortUrl });
+  const result = await Url.findOne({ shortUrl }).lean();
+  try {
+    result;
+    return res.send({ result });
+  } catch (error) {
+    return res.send({ error: "Sorry, this link may have expired" });
   }
 }
 

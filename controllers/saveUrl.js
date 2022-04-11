@@ -5,17 +5,17 @@ function saveUrl(req, res) {
   if (req.body.url) {
     urlData = req.body.url;
   }
-  // console.log("The URL is", urlData);
+
   //Comprobamos si existe
   Url.findOne({ fullUrl: urlData }, (err, doc) => {
     if (doc) {
-      console.log("Entry found it db");
+      res.send({ "Entry found at db": doc });
     } else {
       console.log("This is a new URL");
       const webadress = new Url({
         fullUrl: urlData,
       });
-      addres.push(webadress);
+
       webadress.save((err) => {
         if (err) {
           return console.log(err);

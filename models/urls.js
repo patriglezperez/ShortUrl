@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
+const { customAlphabet } = require("nanoid");
 const shortid = require("shortid");
 const Schema = mongoose.Schema;
-
+const nanoid = customAlphabet("abcdefghijklmnopqrstuvwxyz", 5);
 // Create Schema
 const UrlSchema = new Schema({
   fullUrl: {
@@ -11,7 +12,7 @@ const UrlSchema = new Schema({
   shortUrl: {
     type: String,
     unique: true,
-    default: shortid.generate,
+    default: () => nanoid(),
   },
   date: {
     type: Date,

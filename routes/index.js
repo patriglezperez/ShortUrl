@@ -5,6 +5,6 @@ router.get("/", (req, res) => {
 });
 
 router.use("/", require("./api/save"));
-router.use("/redirect", require("./api/find"));
-
+router.use("/", require("./api/find"));
+router.use("/analytics", require("../controllers/findAllUrls"));
 module.exports = router;
