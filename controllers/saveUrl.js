@@ -5,7 +5,8 @@ function saveUrl(req, res) {
   if (req.body.url) {
     urlData = req.body.url;
   }
-
+  // const urlData = req.body.url;
+  console.log("urlData aqui!!!", req.body);
   //Comprobamos si existe
   Url.findOne({ fullUrl: urlData }, (err, doc) => {
     if (doc) {
