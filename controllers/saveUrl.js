@@ -24,6 +24,7 @@ function saveUrl(req, res) {
         res.send({
           fullUrl: urlData,
           shortUrl: webadress.shortUrl,
+          date: new Date(),
         });
       });
     }

@@ -12,7 +12,7 @@ const UrlSchema = new Schema({
   shortUrl: {
     type: String,
     unique: true,
-    default: () => nanoid(),
+    default: () => `https://getSpace/${nanoid()}`,
   },
   date: {
     type: Date,
