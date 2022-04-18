@@ -25,7 +25,7 @@ db.on("error", (error) => console.log(error));
 db.once("open", () => console.log("connection to db established"));
 
 //Routes
-app.use("/api", require("./routes"));
+app.use("/api", require("./src/routes"));
 
 //Port
 const port = 3001;
