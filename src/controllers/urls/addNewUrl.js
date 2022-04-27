@@ -1,19 +1,20 @@
 const Url = require("..//../models/urls");
-const User = require("../../models/user")
+const User = require("../../models/user");
 
 function addNewUrl(req, res) {
   // El usuario escribe una URL
   if (req.body.url) {
-    urlData = req.body.url;
+    const urlData = req.body.url;
   }
-  const userId = req.body.userId
-  const user = await User.findById(userId)
   // const urlData = req.body.url;
+  // const userId = req.body.userId
+  // const user = await User.findById(userId)
+
   // console.log("urlData aqui!!!", req.body);
   //Creamos una nueva
   const webadress = new Url({
     fullUrl: urlData,
-    user:user._id
+    // user: user._id,
   });
 
   webadress.save((err) => {
@@ -24,7 +25,7 @@ function addNewUrl(req, res) {
       fullUrl: urlData,
       shortUrl: webadress.shortUrl,
       date: new Date(),
-      user: user
+      user: user,
     });
   });
 }

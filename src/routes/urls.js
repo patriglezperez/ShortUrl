@@ -11,7 +11,7 @@ router.delete("/:shortUrl", require("../controllers/deleteUrl"));
 // //El usuario va a  poder crear una nueva url
 // router.use("/urls/add ", require("../controllers/findAllUrls"));
 
-// //Buscar la URL corta y encontrar la Url larga (???)
-// router.get("/:shortUrl", require("../controllers/findFullUrl"));
+//Buscar la URL corta y encontrar la Url larga
+router.get("/find/:shortUrl", require("../controllers/findFullUrl"));
 
 module.exports = router;
