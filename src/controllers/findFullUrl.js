@@ -2,7 +2,7 @@ const Url = require("../models/urls");
 
 async function findFullUrl(req, res) {
   const { shortUrl } = await req.params;
-  console.log("esto es lo que buscamos", shortUrl);
+  // console.log("esto es lo que buscamos", shortUrl);
   // const result = await Url.find({}).where({ shortUrl: shortUrl });
   const result = await Url.findOne({ shortUrl }).lean();
   try {
