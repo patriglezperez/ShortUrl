@@ -1,7 +1,11 @@
 const User = require("../../models/user");
 
 async function allUsers(req, res) {
-  const result = await User.find({});
+  const result = await User.find({}).populate("urls", {
+    fullUrl: 1,
+    date: 1,
+    shortUrl: 1,
+  });
   try {
     result;
     return res.send({ result });

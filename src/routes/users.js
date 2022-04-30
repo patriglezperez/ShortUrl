@@ -1,7 +1,8 @@
 // const passport = require("passport");
 const router = require("express").Router();
+
 //Iniciar sesion
-// router.get("/users/signin", require("../controllers/users/signIn"));
+router.post("/logIn", require("../controllers/users/login"));
 
 //Registro de usuarios
 router.post("/signUp", require("../controllers/users/signUp"));
