@@ -1,4 +1,4 @@
-const Url = require("../models/urls");
+const Url = require("../../models/urls");
 
 async function deleteUrl(req, res) {
   // El usuario escribe una URL corta

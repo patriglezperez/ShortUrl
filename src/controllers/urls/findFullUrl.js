@@ -1,4 +1,4 @@
-const Url = require("../models/urls");
+const Url = require("../../models/urls");
 
 async function findFullUrl(req, res) {
   const { shortUrl } = await req.params;

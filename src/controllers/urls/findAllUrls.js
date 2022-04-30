@@ -1,4 +1,4 @@
-const Url = require("../models/urls");
+const Url = require("../../models/urls");
 
 async function findAllUrl(req, res) {
   const result = await Url.find({}).populate("user", {

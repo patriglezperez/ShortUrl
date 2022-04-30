@@ -24,7 +24,6 @@ const UrlSchema = new Schema({
   },
   clicks: {
     type: Number,
-    required: true,
     default: 0,
   },
 });
