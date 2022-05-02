@@ -1,8 +1,7 @@
 const User = require("../../models/user");
 const Url = require("../../models/urls");
-const jwt = require("jsonwebtoken");
 
-async function saveNewUrl(req, res) {
+async function saveNewUrl(req, res, next) {
   // El usuario escribe una URL
   // if (req.body) {
   //   urlData = req.body.url;
@@ -11,26 +10,9 @@ async function saveNewUrl(req, res) {
   const urlData = req.body.url;
 
   /*you cannot create a note if you do not have the token*/
-  const authorization = req.get("authorization");
 
-  let token = "";
-  if (authorization && authorization.toLowerCase().startsWith("bearer")) {
-    token = authorization.substring(7);
-  }
-
-  let decodedToken = {};
-  try {
-    decodedToken = jwt.verify(token, "123456789"); // cambiar por una variable process.env.SECRET
-  } catch (e) {
-    console.log(e);
-  }
-
-  console.log(decodedToken, "decodedtoken");
-  if (!token || !decodedToken.id) {
-    return res.status(401).json({ error: "token missing or invalid" });
-  }
-
-  const { id: userId } = decodedToken;
+  //sacar userId de req
+  const { userId } = req;
 
   const user = await User.findById(userId);
 
