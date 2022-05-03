@@ -3,18 +3,14 @@ const Url = require("../../models/urls");
 
 async function saveNewUrl(req, res, next) {
   // El usuario escribe una URL
-  // if (req.body) {
-  //   urlData = req.body.url;
-  //   userId = req.body.userId;
-  // }
   const urlData = req.body.url;
+  const token = req.body.token; //.config
 
   /*you cannot create a note if you do not have the token*/
-
   //sacar userId de req
   const { userId } = req;
 
-  const user = await User.findById(userId);
+  const user = await User.findById(userId); //funciona con finOne + token
 
   //Creamos una nueva url
 

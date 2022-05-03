@@ -2,7 +2,7 @@
 const router = require("express").Router();
 
 //Iniciar sesion
-router.post("/logIn", require("../controllers/users/login"));
+router.post("/login", require("../controllers/users/login"));
 
 //Registro de usuarios
 router.post("/signUp", require("../controllers/users/signUp"));
