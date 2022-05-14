@@ -8,7 +8,7 @@ const cors = require("cors");
 const app = express();
 
 //Body parser middelware
-app.use(bodyParser.urlencoded({ extended: false })); //porque vamos a obtener nuestros datos de un formulario
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 

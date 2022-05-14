@@ -1,15 +1,11 @@
 const router = require("express").Router();
-// const userExtractor = require("../middleware/userExtractor");
 
-//Añadir la URL que nos manda el usuario y guardarla en la db
+//Add the URL sent to us by the user and save it in the
 router.post("/add", require("../controllers/urls/saveNewUrl"));
 
-//Buscar todas las urls
+//Search all urls
 router.use("/analytics", require("../controllers/urls/findAllUrls"));
 
-// //Eliminar una Url
-// router.delete("/:shortUrl", require("../controllers/urls/deleteUrl"));
-
-//Buscar la URL corta y encontrar la Url larga
+//Search for the short URL and find the long Url
 router.get("/find/:shortUrl", require("../controllers/urls/findFullUrl"));
 module.exports = router;

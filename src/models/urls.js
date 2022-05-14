@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const { customAlphabet } = require("nanoid");
 const nanoid = customAlphabet("abcdefghijklmnopqrstuvwxyz", 5);
+
 // Create Schema
 const UrlSchema = new Schema({
   fullUrl: {
@@ -26,6 +27,8 @@ const UrlSchema = new Schema({
     default: 0,
   },
 });
+
+//we convert the id to the id itself and remove version control so that it doesn't return so many things
 UrlSchema.set("toJSON", {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id;

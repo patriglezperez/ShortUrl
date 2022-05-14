@@ -1,20 +1,21 @@
 const Url = require("../../models/urls");
 
 async function saveNewUrl(req, res, next) {
-  // The user types a URL
+  // the user enters a url
   const urlData = req.body.url;
 
+  //we create the new url
   const newUrl = new Url({
     fullUrl: urlData,
     date: new Date(),
   });
-  console.log(newUrl, "newUrl");
 
+  // we keep it and return it with all things
   try {
     const savedUrl = await newUrl.save();
     res.json(savedUrl);
   } catch (error) {
-    return console.log(error);
+    return error;
   }
 }
 module.exports = saveNewUrl;
